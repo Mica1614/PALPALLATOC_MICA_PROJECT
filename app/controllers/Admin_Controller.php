@@ -44,7 +44,7 @@ class Admin_Controller extends Controller {
             ]);
 
             $this->pagination->set_theme('bootstrap'); 
-            $this->pagination->initialize($total_rows, $records_per_page, $page, 'dashboard?q='.$q );
+            $this->pagination->initialize($total_rows, $records_per_page, $page, 'admin/user-management?q='.$q );
             // site_url('admin').'?q='.$q ito yung error ko kanina, idk bakit 
             $data['page'] = $this->pagination->paginate();
             $this->call->view('admin/dashboard', $data);
