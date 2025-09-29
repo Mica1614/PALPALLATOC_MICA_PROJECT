@@ -378,7 +378,7 @@
         <div class="nav-item"><a href="#" class="nav-link"><i class="bi bi-gear"></i> Settings</a></div>
         <div class="nav-item"><a href="#" class="nav-link"><i class="bi bi-shield-check"></i> Security</a></div>
         <div class="nav-item"><a href="#" class="nav-link"><i class="bi bi-envelope"></i> Messages</a></div>
-        <div class="nav-item"><a href="login.html" class="nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a></div>
+        <div class="nav-item"><a href="<?=site_url('logout'); ?>" class="nav-link"><i class="bi bi-box-arrow-right"></i> Logout</a></div>
       </div>
     </nav>
 
@@ -388,7 +388,8 @@
       <div class="header">
         <h1 class="header-title">User Management</h1>
         <div class="header-actions">
-          <button class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Add User</button>
+          
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="bi bi-plus-circle me-2"></i>Add Admin</button>
           <button class="btn btn-outline-secondary"><i class="bi bi-download me-2"></i>Export</button>
         </div>
       </div>
@@ -397,7 +398,7 @@
       <div class="content-card">
         <div class="table-header">
           <h3 class="table-title">All Users</h3>
-         <form action="<?= site_url('dashboard'); ?>" method="get" class="search-box d-flex">
+         <form action="<?= site_url('admin/user-management'); ?>" method="get" class="search-box d-flex">
             <?php
             $q = '';
             if(isset($_GET['q'])) {
@@ -420,6 +421,7 @@
                 <th>Email</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Role</th>
                 <th>Joined</th>
                 <th>Actions</th>
               </tr>
@@ -431,7 +433,7 @@
                   <div class="user-info">
                     <div class="user-avatar">
     <img src="<?= base_url() . $user['profile_picture']; ?>" alt="Profile Picture">
-</div>
+        </div>
                     <div class="user-details">
                       <h6><?= html_escape($user['username']); ?></h6>
                       <small>ID: <?= html_escape($user['id']); ?></small>
@@ -441,6 +443,7 @@
                 <td><?= html_escape($user['email']); ?></td>
                 <td><?= html_escape($user['first_name']); ?></td>
                 <td><?= html_escape($user['last_name']); ?></td>
+                <td><?= html_escape($user['role']); ?></td>
                 <td><?= html_escape($user['created_at']); ?></td>
 
                 <td>
@@ -451,10 +454,40 @@
                 </td>
               </tr>
 
-              <!-- Edit User Modal -->
-              <div class="modal fade" id="editUserModal<?= $user['id']; ?>" tabindex="-1" aria-hidden="true">
+              <!-- add admin -->
+              <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
+                    <form method="POST" action="<?= site_url('admin/createAdmin'); ?>" enctype="multipart/form-data">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Add admin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="mb-3"><label class="form-label">First Name</label><input type="text" name="first_name" class="form-control"></div>
+                        <div class="mb-3"><label class="form-label">Last Name</label><input type="text" name="last_name" class="form-control"></div>
+                        <div class="mb-3"><label class="form-label">Username</label><input type="text" name="username" class="form-control"></div>
+                        <div class="mb-3"><label class="form-label">Email</label><input type="email" name="email" class="form-control"></div>
+                         <div class="mb-3"><label class="form-label">Password</label><input type="text" name="password" class="form-control"></div>
+                        <div class="mb-3"><label class="form-label">Confirm Password</label><input type="text" name="confirm_password" class="form-control"></div>
+                          <div class="form-group">
+                        <input type="file" class="form-control" required name="profile_picture" accept="image/*">
+                    </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+               <div class="modal fade" id="editUserModal<?= $user['id']; ?>" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
                     <form method="POST" action="<?= site_url('admin/update/'.$user['id']); ?>">
                       <div class="modal-header">
                         <h5 class="modal-title">Edit User</h5>

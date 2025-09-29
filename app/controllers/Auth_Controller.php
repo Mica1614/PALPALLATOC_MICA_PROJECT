@@ -50,7 +50,7 @@ class Auth_Controller extends Controller {
                     'last_name'  => $user['last_name'],
                     'user_id'    => $user['id'],
                     'username'   => $user['username'],
-                    'role'       => $user['role'],   // ✅ store role
+                    'role'       => $user['role'], 
                     'logged_in'  => TRUE
                 ]);
 

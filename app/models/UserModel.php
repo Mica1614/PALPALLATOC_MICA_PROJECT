@@ -37,11 +37,17 @@ class UserModel extends Model {
                         ->get();
     }
 
+    public function allUser(){
+         return $this->db->table('users')
+                        ->where('role', 'user')
+                        ->get();
+
+    }
    
 
     public function getAll($q, $records_per_page = null, $page = null){
         if(is_null($page)){
-             return $this->db->table($this->table)->get_all();
+                return $this->db->table($this->table)->where('role', 'user')->get_all();
         } else {
             $query = $this->db->table($this->table);
 
@@ -59,6 +65,7 @@ class UserModel extends Model {
 
             // Get paginated records
             $data['records'] = $query->pagination($records_per_page, $page)
+                                    ->where('role', 'user')
                                     ->get_all();
 
             return $data;
