@@ -16,7 +16,15 @@ class User_Controller extends Controller {
 
 
     public function registerForm(){
+          if ($this->session->userdata('logged_in')) {
+        if ($this->session->userdata('role') === 'admin') {
+            redirect('/admin/user-management');
+        } else {
+            redirect('/home'); // 
+        }
+    } else {
         $this->call->view('users/register');
+    }
     }
 
 
@@ -123,15 +131,20 @@ class User_Controller extends Controller {
         redirect('/register');
     }
 
-    public function userHomepage(){
-        if(!$this->session->has_userdata('logged_in')){
-                redirect('/');
+        public function userHomepage(){
+        if (!$this->session->userdata('logged_in')) {
+                return redirect('/');
             }
 
-             $user_id = $this->session->userdata('user_id');
-            $data['user'] = $this->UserModel->find($user_id);
-            $this->call->view('users/dashboard', $data);
-    }
+            // Check if role is admin
+            if ($this->session->userdata('role') === 'admin') {
+                return redirect(site_url('admin/user-management'));
+            }
+
+                $user_id = $this->session->userdata('user_id');
+                $data['user'] = $this->UserModel->find($user_id);
+                $this->call->view('users/dashboard', $data);
+        }
 
 }
 
