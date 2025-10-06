@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Diprella</title>
+    <title>Dashboard </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --teal-primary: #4ECDC4;
-            --teal-dark: #45B7B8;
-            --coral: #FF6B6B;
-            --yellow: #FFE66D;
-            --gray-light: #F8F9FA;
+            --teal-primary: #000000;
+            --teal-dark: #c100f6;
+            --coral: #000000;
+            --yellow: #ffeb0d;
+            --gray-light: #040404;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--gray-light);
         }
         .navbar {
-            background: white !important;
+            background: rgb(255, 255, 255) !important;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1rem 0;
         }
@@ -50,7 +50,7 @@
         }
         .welcome-card {
             background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
-            color: white;
+            color: rgb(219, 210, 210);
             border: none;
             border-radius: 15px;
             overflow: hidden;
@@ -90,7 +90,7 @@
         .detail-card {
             border: none;
             border-radius: 10px;
-            background: white;
+            background: rgb(236, 183, 255);
             border-left: 4px solid var(--teal-primary);
             transition: all 0.3s ease;
         }
@@ -129,7 +129,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: white;
+            color: rgb(255, 255, 255);
         }
         .stats-icon.teal { background: var(--teal-primary); }
         .stats-icon.coral { background: var(--coral); }
@@ -142,7 +142,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <div class="logo-icon"></div>
-                Diprella Dashboard
+                Dashboard
             </div>
             <button type="button" class="btn btn-logout text-white d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#logoutModal">
                 <i class="bi bi-box-arrow-right me-2"></i>Logout

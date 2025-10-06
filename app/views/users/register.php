@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up to Diprella</title>
+    <title>Sign up </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* Updated to match Diprella design with reversed layout for registration */
+        /* Purple Theme Update */
         :root {
-            --teal-primary: #4ECDC4;
-            --teal-dark: #45B7B8;
-            --coral: #FF6B6B;
-            --yellow: #FFE66D;
+            --purple-primary: #7E57C2;
+            --purple-dark: #5E35B1;
+            --purple-light: #D1C4E9;
+            --pink-accent: #BA68C8;
             --gray-light: #F8F9FA;
         }
         
@@ -31,7 +31,7 @@
         
         .left-panel {
             flex: 1;
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+            background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -42,7 +42,7 @@
         
         .right-panel {
             flex: 1;
-            background: white;
+            background: rgb(0, 0, 0);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,7 +64,7 @@
         .logo-icon {
             width: 24px;
             height: 24px;
-            background: var(--teal-primary);
+            background: var(--purple-primary);
             border-radius: 4px;
             margin-right: 0.5rem;
         }
@@ -75,7 +75,7 @@
         }
         
         .form-title {
-            color: var(--teal-primary);
+            color: var(--purple-dark);
             font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 2rem;
@@ -104,8 +104,8 @@
         }
         
         .social-btn:hover {
-            border-color: var(--teal-primary);
-            color: var(--teal-primary);
+            border-color: var(--purple-primary);
+            color: var(--purple-primary);
         }
         
         .divider {
@@ -125,17 +125,17 @@
             padding: 0.75rem 1rem;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            background: #f8f9fa;
+            background: #ffffff;
         }
         
         .form-control:focus {
-            border-color: var(--teal-primary);
-            box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+            border-color: var(--purple-primary);
+            box-shadow: 0 0 0 0.2rem rgba(126, 87, 194, 0.25);
             background: white;
         }
         
         .btn-signup {
-            background: var(--teal-primary);
+            background: var(--purple-primary);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -144,10 +144,11 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             width: 100%;
+            color: white;
         }
         
         .btn-signup:hover {
-            background: var(--teal-dark);
+            background: var(--purple-dark);
             transform: translateY(-2px);
         }
         
@@ -184,7 +185,7 @@
         
         .btn-signin:hover {
             background: white;
-            color: var(--teal-primary);
+            color: var(--purple-primary);
         }
         
         /* Decorative shapes */
@@ -196,7 +197,7 @@
         .shape-1 {
             width: 100px;
             height: 100px;
-            background: var(--coral);
+            background: var(--pink-accent);
             top: 10%;
             left: 10%;
             opacity: 0.8;
@@ -205,7 +206,7 @@
         .shape-2 {
             width: 60px;
             height: 60px;
-            background: var(--yellow);
+            background: var(--purple-light);
             bottom: 20%;
             right: -30px;
             opacity: 0.9;
@@ -286,10 +287,9 @@
                 <div class="divider">or use your email for registration</div>
                 
                 <!-- Registration Form -->
-                
-                <form id="registerForm" action="<?= site_url('create-user');?>" method="POST"  enctype="multipart/form-data">
-                     <?php getErrors(); ?>
-        <?php getMessage(); ?>
+                <form id="registerForm" action="<?= site_url('create-user');?>" method="POST" enctype="multipart/form-data">
+                    <?php getErrors(); ?>
+                    <?php getMessage(); ?>
 
                     <div class="form-group">
                         <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
@@ -323,13 +323,11 @@
                     </button>
                 </form>
             </div>
-            
            
             <div class="shape shape-2"></div>
         </div>
     </div>
 
-     <script src="<?= BASE_URL; ?>/public/js/alert.js"></script>
-
+    <script src="<?= BASE_URL; ?>/public/js/alert.js"></script>
 </body>
 </html>
