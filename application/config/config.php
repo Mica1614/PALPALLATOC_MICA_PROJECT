@@ -1,0 +1,205 @@
+<?php
+defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
+/**
+ * ------------------------------------------------------------------
+ * LavaLust - an opensource lightweight PHP MVC Framework
+ * ------------------------------------------------------------------
+ *
+ * MIT License
+ * 
+ * Copyright (c) 2020 Ronald M. Marasigan
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package LavaLust
+ * @author Ronald M. Marasigan <ronald.marasigan@yahoo.com>
+ * @copyright Copyright 2020 (https://techron.info)
+ * @version Version 1.2
+ * @link https://lavalust.com
+ * @license https://opensource.org/licenses/MIT MIT License
+ */
+
+/*
+| -------------------------------------------------------------------
+|  Config Files
+| -------------------------------------------------------------------
+| This file is for setting-up default settings.
+|
+*/
+
+/*
+| -------------------------------------------------------------------
+|  Your Own Configs
+| -------------------------------------------------------------------
+| For easy access on your config, just put them below
+| You can simple get configs using config_item() function anywhere
+| My Configs:
+*/
+
+/*
+| -------------------------------------------------------------------
+| LavaLust Version
+| -------------------------------------------------------------------
+*/
+$config['VERSION']                 = '1.2.9';
+
+/*
+| -------------------------------------------------------------------
+| Default Environment
+| -------------------------------------------------------------------
+*/
+$config['ENVIRONMENT']             = 'production';
+
+/*
+| -------------------------------------------------------------------
+| Default Timezone
+| -------------------------------------------------------------------
+*/
+date_default_timezone_set('Asia/Manila');
+
+/*
+|--------------------------------------------------------------------------
+| Base Site URL
+|--------------------------------------------------------------------------
+|
+| URL to your CodeIgniter root. Typically this will be your base URL,
+| WITH a trailing slash:
+|
+|	http://example.com/
+|
+| WARNING: You MUST set this value!
+|
+*/
+ 
+$config['base_url']= '';
+
+$config['base_url']= 'https://lavalust.netlify.app';
+
+
+/*
+|--------------------------------------------------------------------------
+| Allowed URL Characters
+|--------------------------------------------------------------------------
+|
+| This lets you specify which characters are permitted within your URLs.
+| When someone tries to submit a URL with disallowed characters they will
+| get a warning message.
+|
+| As a security measure you are STRONGLY encouraged to restrict URLs to
+| as few characters as possible.  By default only these are allowed: a-z 0-9~%.:_-
+|
+| Leave blank to allow all characters -- but only if you are insane.
+|
+| The configured value is actually a regular expression character group
+| and it will be executed as: ! preg_match('/^[<permitted_uri_chars>]+$/i
+|
+| DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
+|
+*/
+$config['permitted_uri_chars']		= 'a-z 0-9~%.:_\-';
+
+/*
+|--------------------------------------------------------------------------
+| Default Character Set
+|--------------------------------------------------------------------------
+|
+| This config will be use html_escape function
+|
+*/
+$config['charset']					= 'UTF-8';
+
+/*
+|--------------------------------------------------------------------------
+| Default Controllers and Methods
+|--------------------------------------------------------------------------
+|
+| This config will be used in the babaeron.php file inside core.
+|
+*/
+$config['default_controller'] 		= 'Welcome';
+$config['default_method'] 			= 'index';
+
+/*
+|--------------------------------------------------------------------------
+| Error Views Directory Path
+|--------------------------------------------------------------------------
+|
+| application/views/errors/ directory.  Use a full server path with trailing slash.
+|
+*/
+$config['error_view_path']         	= APP_DIR . 'views' . DIRECTORY_SEPARATOR . 'errors' . DIRECTORY_SEPARATOR;
+/*
+|--------------------------------------------------------------------------
+| Default Language
+|--------------------------------------------------------------------------
+|
+| This determines which set of language files should be used. Make sure
+| there is an available translation if you intend to use something other
+| than english.
+|
+*/
+$config['language'] 				= 'en';
+
+/*
+|--------------------------------------------------------------------------
+| Session                     
+|--------------------------------------------------------------------------
+|
+|Settings for sessions
+|
+|--------------------------------------------------------------------------
+*/
+$config['encryption_key']          = 'E0i3SfNtntaypu2owlxqdmXBtZ6i0NDm';
+$config['sess_driver']             = 'file';
+$config['sess_cookie_name']        = 'lava_session';
+$config['sess_expiration']         = 7200;
+$config['sess_save_path']          = '';
+$config['sess_match_ip']           = FALSE;
+$config['sess_time_to_update']     = 300;
+$config['sess_regenerate_destroy'] = FALSE;
+$config['sess_expire_on_close']    = FALSE;
+
+/*
+|--------------------------------------------------------------------------
+| Cookies                      
+|--------------------------------------------------------------------------
+|
+|Settings for cookies.
+|
+|--------------------------------------------------------------------------
+*/
+$config['cookie_prefix']           = '';
+$config['cookie_domain']           = '';
+$config['cookie_path']             = '/';
+$config['cookie_secure']           = FALSE;
+$config['cookie_expiration']       = 86400;
+$config['cookie_httponly']         = TRUE;
+
+/*
+|--------------------------------------------------------------------------
+| Cache                      
+|--------------------------------------------------------------------------
+|
+|Settings for Cache
+|
+|--------------------------------------------------------------------------
+*/
+$config['cache_dir'] = APP_DIR . 'cache/';
+$config['cache_default_expires'] = 0;
+?>
